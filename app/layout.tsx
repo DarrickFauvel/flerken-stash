@@ -34,16 +34,28 @@ export default function RootLayout({
     </>
   )
 
-  const authNav = null
+  const authNav = (
+    <>
+    <li>
+      <Link href='/sign-up'>Sign Up</Link>
+    </li>
+    <li>
+      <Link href='/sign-in'>Sign In</Link>
+    </li>
+    <li>
+      <button>Sign Out</button>
+    </li>
+    </>
+  )
 
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav>
-          <ul>{appNav}</ul>
-          <ul>{authNav}</ul>
+        <nav className="flex flex-wrap">
+          <ul className="flex gap-4">{appNav}</ul>
+          <ul className="flex gap-4">{authNav}</ul>
         </nav>
 
         <hr />
