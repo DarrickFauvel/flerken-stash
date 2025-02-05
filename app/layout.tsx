@@ -53,7 +53,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav className="flex flex-wrap">
+        <nav className="flex flex-wrap justify-between gap-4">
           <ul className="flex gap-4">{appNav}</ul>
           <ul className="flex gap-4">{authNav}</ul>
         </nav>
