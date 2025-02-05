@@ -2,6 +2,14 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import Link from "next/link"
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,19 +57,26 @@ export default function RootLayout({
   )
 
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <nav className="flex flex-wrap justify-between gap-4">
-          <ul className="flex gap-4">{appNav}</ul>
-          <ul className="flex gap-4">{authNav}</ul>
-        </nav>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <header className="flex justify-end items-center p-4 gap-4 h-16">
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header>
 
-        <hr />
-        
-        {children}
-      </body>
-    </html>
+          <hr />
+      
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
