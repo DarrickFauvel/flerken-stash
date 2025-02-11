@@ -1,5 +1,4 @@
 import { APP_NAME } from "@/constants";
-import Image from "next/image";
 
 export default function PublicHomePage() {
   return (
@@ -18,9 +17,7 @@ export default function PublicHomePage() {
           <p>Where cosmic chaos meets perfect organization.</p>
         </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-
-      </footer>
+      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </div>
   );
 }
