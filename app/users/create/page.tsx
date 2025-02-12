@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import Form from "next/form";
 
@@ -35,7 +36,7 @@ export default function NewUserPage() {
         <br />
         <input type="email" name="email" placeholder="Email" />
         <br />
-        <button type="submit">Create</button>
+        <Button type="submit">Create</Button>
       </Form>
     </>
   );
