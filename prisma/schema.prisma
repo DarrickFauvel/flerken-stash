@@ -57,16 +57,14 @@ model User {
 //   Room   Room?   @relation(fields: [roomId], references: [id])
 // }
 
-// model Container {
-//   id              String        @id @default(cuid())
-//   containerType   ContainerType @relation(fields: [containerTypeId], references: [id])
-//   containerTypeId String
-// }
+model Container {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+}
 
-// model ContainerType {
-//   id          String @id @default(cuid())
-//   name        String
-//   description String
-
-//   Container Container[]
-// }
+model ContainerType {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  name        String @unique
+  short_code  String @unique
+  description String
+}
